@@ -10,13 +10,13 @@
 			"data"=>[]
 		];
 
-		public function __construct($opts=array()) {
+		public function __construct($opts = array(), $ptl_dir = "/views/") {
 
 			$this->options = array_merge($this->defaults, $opts);
 
 			$config = array(
-				"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]."/meussistemas/ecommerce/views/",
-				"cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/meussistemas/ecommerce/views-cache/",
+				"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"].$ptl_dir,
+				"cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/views-cache/",
 				"debug"         => false 
 			);
 
@@ -26,14 +26,6 @@
 			$this->tpl = new Tpl;
 			$this->setData($this->options["data"]);
 			
-
-			// assign a variable
-			//$tpl->assign( "name", "Obi Wan Kenoby" );
-
-			// assign an array
-			//$tpl->assign( "week", array( "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ) );
-
-			// draw the template
 			$this->tpl->draw( "header" );
 		}
 
